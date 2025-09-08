@@ -1,7 +1,16 @@
 name: "Test-Env"
 
 on:
-  workflow_dispatch: # Allows manual trigger from GitHub UI
+  workflow_dispatch:
+    inputs:
+      deep:
+        description: "it is just my name"
+        required: true
+        default: "oc-orignal-value"
+      environment:
+        description: "it is a variable whose name is environment"
+        required: true
+        default: "stagin.deep.ai"
 
 
   push:                # Trigger on push events
@@ -17,3 +26,6 @@ jobs:
 
       - name: Say Hello
         run: echo "Hello from GitHub Actions!"
+
+      - name: Print My Name Hello
+        run: echo "Hello from ${{ inputs.deep }} !"

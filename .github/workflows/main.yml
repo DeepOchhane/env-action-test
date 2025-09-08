@@ -27,5 +27,11 @@ jobs:
       - name: Say Hello
         run: echo "Hello from GitHub Actions!"
 
+      - name: CREATE A FILE #Ye file phle se bani he
+        run: touch "stagin.deep.ai.env"
+        
+      - name: PRINT THE FILE
+        run: cat ${{ inputs.deep }}.env
+
       - name: Print My Name Hello
         run: echo "Hello from ${{ inputs.deep }} !"

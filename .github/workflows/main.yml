@@ -31,7 +31,7 @@ jobs:
         run: touch "stagin.deep.ai.env"
         
       - name: PRINT THE FILE
-        run: cat ${{ inputs.deep }}.env
+        run: cat ${{ inputs.environment }}.env
 
       - name: Print My Name Hello
         run: echo "Hello from ${{ inputs.deep }} !"

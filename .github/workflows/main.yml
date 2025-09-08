@@ -11,10 +11,10 @@ on:
       environment:
         description: "it is a variable whose name is environment"
         required: true
-        default: "stagin.deep.ai"
+        default: "stagin.deep.ai" ## HARDCODE VALUE / LITERAL
 
 
-  push:                # Trigger on push events
+  push:
     branches:
       - main
 

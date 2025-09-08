@@ -1,5 +1,5 @@
 name: "Test-Env"
-run-name: "DEEP RUNNER"
+run-name: "**[[${{ inputs.environment }}]]** - DEEP RUNNER"
 
 on:
   workflow_dispatch:

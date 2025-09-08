@@ -1,0 +1,19 @@
+name: "Test-Env"
+
+on:
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+
+  push:                # Trigger on push events
+    branches:
+      - main
+
+jobs:
+  echo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print event info
+        run: echo "This workflow was triggered by ${{ github.event_name }} on branch ${{ github.ref_name }}"
+
+      - name: Say Hello
+        run: echo "Hello from GitHub Actions!"

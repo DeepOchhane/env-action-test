@@ -1,4 +1,4 @@
-name: "Test-Env"
+name: "[${{ inputs.environment }}]-Test-Env"
 
 on:
   workflow_dispatch:

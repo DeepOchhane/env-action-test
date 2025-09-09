@@ -5,7 +5,7 @@ env:
   DEEP: 'oc-orignal-value'
   ENVIRONMENT: 'stagin.deep.ai'
 
-run-name: "**[[${{ env.ENVIRONMENT }}]]** - DEEP RUNNER"
+run-name: "**[[${{ inputs.environment }}]]** - DEEP RUNNER"
 
   
 on:

@@ -1,13 +1,6 @@
 name: "Test-Env"
 run-name: "[${{ github.event.inputs.environment || 'staging.zentium.ai'  }}] DEPLOY API"
 
-env:
-  # If manual run, use provided inputs; on push, fall back to defaults.
-  DEEP: ${{ inputs.deep || 'oc-orignal-value' }}
-  ENVIRONMENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'staging.zentium.ai' }}
-
-
-
 
   
 on:
@@ -26,6 +19,12 @@ on:
   push:
     branches:
       - main
+
+env:
+  # If manual run, use provided inputs; on push, fall back to defaults.
+  DEEP: ${{ inputs.deep || 'oc-orignal-value' }}
+  ENVIRONMENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'staging.zentium.ai' }}
+
 jobs:
   echo-job:
     runs-on: ubuntu-latest

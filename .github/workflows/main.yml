@@ -1,5 +1,5 @@
 name: "Test-Env"
-run-name: "${{ github.event.inputs.environment || 'staging.zentium.ai'  }} DEPLOY API"
+run-name: "[${{ github.event.inputs.environment || 'staging.zentium.ai'  }}] DEPLOY API"
 
 env:
   # If manual run, use provided inputs; on push, fall back to defaults.

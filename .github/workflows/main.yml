@@ -21,7 +21,7 @@ on:
       - main
 
 concurrency:
-  group: ${{ github.workflow }}-${{ env.ENVIRONMENT }}
+  group: ${{ github.workflow }}-${{ github.event.inputs.environment || 'staging.zentium.ai' }}
   cancel-in-progress: false
 
 env:

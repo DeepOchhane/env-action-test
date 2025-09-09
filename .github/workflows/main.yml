@@ -2,10 +2,10 @@ name: "Test-Env"
 
 env:
   # If manual run, use provided inputs; on push, fall back to defaults.
-  DEEP: 'oc-orignal-value'
-  ENVIRONMENT: 'stagin.deep.ai'
+  DEEP: '${{ inputs.deep }} || oc-orignal-value'
+  ENVIRONMENT: '${{ inputs.environment }} || stagin.deep.ai'
 
-run-name: "**[[${{ inputs.environment }}]]** - DEEP RUNNER"
+run-name: "**[[${{ inputs.environment || stagin.deep.ai }}]]** - DEEP RUNNER"
 
   
 on:

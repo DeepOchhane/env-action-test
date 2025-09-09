@@ -1,6 +1,10 @@
 name: "Test-Env"
 run-name: "**[[${{ inputs.environment }}]]** - DEEP RUNNER"
-
+env:
+  # If manual run, use provided inputs; on push, fall back to defaults.
+  DEEP: 'oc-orignal-value'
+  ENVIRONMENT: 'stagin.deep.ai'
+  
 on:
   workflow_dispatch:
     inputs:
@@ -17,7 +21,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   echo-job:
     runs-on: ubuntu-latest
@@ -32,7 +35,7 @@ jobs:
         run: touch "stagin.deep.ai.env"
         
       - name: PRINT THE FILE
-        run: cat ${{ inputs.environment }}.env
+        run: cat ${{ env.ENVIRONMENT }}.env
 
       - name: Print My Name Hello
-        run: echo "Hello from ${{ inputs.deep }} !"
+        run: echo "Hello from ${{ env.DEEP }} !"

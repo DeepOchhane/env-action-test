@@ -2,12 +2,12 @@ name: "Test-Env"
 
 
 
-run-name: "**[[${{ inputs.environment || stagin.deep.ai }}]]** - DEEP RUNNER"
+run-name: "**[[${{ inputs.environment || 'stagin.deep.ai' }}]]** - DEEP RUNNER"
 
 env:
   # If manual run, use provided inputs; on push, fall back to defaults.
   DEEP: '${{ inputs.deep }} || oc-orignal-value'
-  ENVIRONMENT: '${{ inputs.environment }} || stagin.deep.ai'
+  ENVIRONMENT: "${{ inputs.environment }} || 'stagin.deep.ai'"
   
 on:
   workflow_dispatch:

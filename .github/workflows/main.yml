@@ -1,13 +1,13 @@
 name: "Test-Env"
 
-
-
-run-name: "**[[${{ inputs.environment || 'stagin.deep.ai' }}]]** - DEEP RUNNER"
-
 env:
   # If manual run, use provided inputs; on push, fall back to defaults.
   DEEP: ${{ inputs.deep || 'oc-orignal-value' }}
   ENVIRONMENT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'staging.zentium.ai' }}
+
+run-name: ${{ format('{0} DEEP RUNNER', env.ENVIRONMENT) }}
+
+
   
 on:
   workflow_dispatch:
